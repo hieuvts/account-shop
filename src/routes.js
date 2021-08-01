@@ -1,13 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import HomePage from "./views/pages/home/Home";
-import DepositPage from "./views/pages/deposit/Deposit";
-import ContactPage from "./views/pages/contact/Contact";
-import SignIn from "./views/pages/account/SignIn";
 import { routes } from "./views/shared/constants";
 import logo from "./images/google.svg";
 import { Layout, Menu, Breadcrumb } from "antd";
-const { Header, Content, Footer } = Layout;
+import MyFooter from "./views/shared/footer";
+const { Header, Content } = Layout;
 export default function Routes() {
   return (
     <>
@@ -88,9 +85,7 @@ export default function Routes() {
               </Switch>
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
-          </Footer>
+          <MyFooter />
         </Router>
       </Layout>
     </>

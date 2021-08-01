@@ -1,7 +1,15 @@
-import './Home.scss'
+import "./Home.scss";
+import CarouselBanner from "../../components/CarouselBanner";
+import AccountFilter from "./Home.AccountFilter";
+import { useState } from "react";
+import AccountList from "./Home.AccountList";
 
-export default function HomePage (){
-    return (
-        <div><h1>Home Page</h1></div>
-    )
+export default function HomePage() {
+  return (
+    <div>
+      <CarouselBanner />
+      <AccountFilter />
+      <AccountList />
+    </div>
+  );
 }

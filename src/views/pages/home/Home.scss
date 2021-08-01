@@ -1,3 +1,37 @@
-body {
-    text-align: center;
+// @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+// body {
+//     text-align: center;
+//     font-family: 'Lato', sans-serif;
+// }
+// h1 {
+//     font-family: 'Lato', sans-serif;
+// }
+.account-filter {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-color: whitesmoke;
+    border-style: solid;
+    .input-group {
+        justify-content: space-between;
+    }
+}
+
+.account-list {
+    text-align: left;
+    border-color: whitesmoke;
+    border-style: solid;
+}
+
+.card-meta-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-meta-description-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
