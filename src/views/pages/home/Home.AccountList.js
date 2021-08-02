@@ -1,12 +1,16 @@
-import { Row, Col, Modal, Button, Card, Rate } from "antd";
+import { Row, Col, Modal, Button, Card, Rate, Pagination } from "antd";
 import { FaFlag } from "react-icons/fa";
 import { useState } from "react";
 import { gridItems } from "../../shared/constants";
 const { Meta } = Card;
 
-export default function AccountList() {
+export default function AccountList({ accounts }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalTitle, setmodalTitle] = useState("");
+  const [currentPage, setcurrentPage] = useState(1);
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(4);
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -18,6 +22,17 @@ export default function AccountList() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  const onPageChange = (page) => {
+    console.log("page: ", page);
+    setcurrentPage(page);
+    setMinValue((page - 1) * 4);
+    setMaxValue((page - 1) * 4 + 4);
+  };
+  // const handlePageChange = (page) => {
+  //   console.log('page: ', page);
+  //   setMinValue(page*4 +4);
+  //   setMaxValue(page*4 +4);
+  // };
   return (
     <>
       <Modal
@@ -46,9 +61,9 @@ export default function AccountList() {
         </div>
       </Modal>
       <div className="account-list">
-        <h2>Account</h2>
+        <h2>Account: {accounts.length}</h2>
         <Row gutter={[16, 24]} style={{ textAlign: "center" }}>
-          {gridItems.map((item, index) => {
+          {accounts.slice(minValue, maxValue).map((item, index) => {
             return (
               <Col className="gutter-row" span={6}>
                 <Card
@@ -56,8 +71,8 @@ export default function AccountList() {
                   style={{ width: "100%", height: "auto" }}
                   cover={
                     <img
-                      alt={item.content.imgAlt}
-                      src={item.content.imgSrc}
+                      alt="Images"
+                      src={item.imgPreview}
                       height="300px"
                       onClick={() => {
                         showModal();
@@ -70,7 +85,7 @@ export default function AccountList() {
                     title={
                       <Rate
                         disabled
-                        defaultValue={item.rating}
+                        defaultValue="3"
                         style={{ fontSize: "15px" }}
                       />
                     }
@@ -81,18 +96,18 @@ export default function AccountList() {
                           <FaFlag />
                         </div>
                         <div className="card-meta-description-child">
-                          <h3>Total friends</h3>
-                          <h3>100</h3>
+                          <h3>Total champion</h3>
+                          {item.totalChampion}
                         </div>
                         <div className="card-meta-description-child">
-                          <h3>Created at</h3>
+                          <h3>Total skin</h3>
                           <h3 style={{ color: "blue", fontWeight: "800" }}>
-                            01/08/2021
+                            {item.totalSkin}
                           </h3>
                         </div>
                         <div className="card-meta-description-child">
-                          <h3>blah...blah</h3>
-                          <h3>blah...blah</h3>
+                          <h3>{item.accountID}</h3>
+                          <h3>{item.rank}</h3>
                         </div>
                         <div className="card-meta-description-child">
                           <div
@@ -104,7 +119,7 @@ export default function AccountList() {
                               padding: "5px",
                             }}
                           >
-                            1.000 VND
+                            {item.price}
                           </div>
                           <Button
                             type="primary"
@@ -122,6 +137,12 @@ export default function AccountList() {
             );
           })}
         </Row>
+        <Pagination
+          current={currentPage}
+          total={30}
+          style={{ textAlign: "center" }}
+          onChange={onPageChange}
+        />
       </div>
     </>
   );

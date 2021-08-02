@@ -6,6 +6,7 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import MyFooter from "./views/shared/footer";
 const { Header, Content } = Layout;
 export default function Routes() {
+  
   return (
     <>
       {/* <Router>
