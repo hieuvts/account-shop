@@ -6,44 +6,8 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import MyFooter from "./views/shared/footer";
 const { Header, Content } = Layout;
 export default function Routes() {
-  
   return (
     <>
-      {/* <Router>
-        <header>
-          <a className="logo" href="/">
-            <img src={logo} alt="Home" width="60px" height="60px"></img>
-          </a>
-          <nav>
-            <ul className="nav-link">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/deposit">Nạp tiền</Link>
-              </li>
-              <li>
-                <Link to="/contact">Liên hệ</Link>
-              </li>
-            </ul>
-          </nav>
-          <button className="signin-button">Đăng nhập</button>
-        </header>
-        <Switch>
-          <Route path="/deposit">
-            <DepositPage />
-          </Route>
-          <Route path="/contact">
-            <ContactPage />
-          </Route>
-          <Route path="/account">
-            <SignIn />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </Router> */}
       <Layout className="layout">
         <Router>
           <Header>
@@ -73,7 +37,6 @@ export default function Routes() {
               </Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-content">
-              {/* <MainContent /> */}
               <Switch>
                 {routes.map((route, index) => (
                   <Route
@@ -90,20 +53,5 @@ export default function Routes() {
         </Router>
       </Layout>
     </>
-  );
-}
-
-function MainContent() {
-  return (
-    <Switch>
-      {routes.map((route, index) => (
-        <Route
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          component={route.main}
-        />
-      ))}
-    </Switch>
   );
 }
