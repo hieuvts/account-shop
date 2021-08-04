@@ -1,34 +1,19 @@
+import { Breadcrumb, Layout, Affix } from "antd";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { routes } from "./views/shared/constants";
-import logo from "./images/google.svg";
-import { Layout, Menu, Breadcrumb } from "antd";
 import MyFooter from "./views/shared/footer";
+import HomeHeader from "./views/shared/header";
+
 const { Header, Content } = Layout;
 export default function Routes() {
   return (
     <>
       <Layout className="layout">
         <Router>
-          <Header>
-            <div className="logo">
-              <img src={logo} alt="Home" width="50px" height="50px"></img>
-            </div>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-              <Menu.Item key={1} onClick={() => console.log("clicked Home")}>
-                <Link to="/">Home</Link>
-              </Menu.Item>
-              <Menu.Item key={2} onClick={() => console.log("clicked Deposit")}>
-                <Link to="/deposit">Deposit</Link>
-              </Menu.Item>
-              <Menu.Item key={3} onClick={() => console.log("clicked Contact")}>
-                <Link to="/contact">Contact</Link>
-              </Menu.Item>
-              <Menu.Item key={4} onClick={() => console.log("clicked SignIn")}>
-                <Link to="/signin"> SignIn</Link>
-              </Menu.Item>
-            </Menu>
-          </Header>
+          <Affix>
+            <HomeHeader />
+          </Affix>
           <Content style={{ padding: "0 50px" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>

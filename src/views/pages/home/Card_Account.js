@@ -1,5 +1,7 @@
 import { Button, Col, Card, Rate } from "antd";
 import { FaFlag } from "react-icons/fa";
+import { addItemToCart } from "../../../redux/cartSlice";
+import { useDispatch } from "react-redux";
 const { Meta } = Card;
 
 const priceStyle = {
@@ -17,6 +19,7 @@ export default function CardAccount({
   maxValue,
   showModal,
 }) {
+  const dispatch = useDispatch();
   return (
     accounts.length > 0 &&
     accounts.slice(minValue, maxValue).map((item, index) => {
@@ -65,7 +68,10 @@ export default function CardAccount({
                     <Button
                       type="primary"
                       size="large"
-                      onClick={() => console.log("button", item._id)}
+                      onClick={() => {
+                        console.log("clicked btn BUY");
+                        dispatch(addItemToCart(item));
+                      }}
                     >
                       Buy
                     </Button>

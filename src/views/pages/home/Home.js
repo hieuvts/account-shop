@@ -23,12 +23,12 @@ export default function HomePage() {
   useEffect(() => {
     dispatch(getAccountAsync());
   }, [dispatch, priceSort, dateSort]);
-  useEffect(() => {
-    dispatch(sortAccountByPrice(priceSort));
-  }, [priceSort, dispatch]);
-  useEffect(() => {
-    dispatch(sortAccountByDate(dateSort));
-  }, [dateSort, dispatch]);
+  // useEffect(() => {
+  //   dispatch(sortAccountByPrice(priceSort));
+  // }, [priceSort, dispatch]);
+  // useEffect(() => {
+  //   dispatch(sortAccountByDate(dateSort));
+  // }, [dateSort, dispatch]);
 
   return (
     <div>

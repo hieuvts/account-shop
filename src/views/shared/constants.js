@@ -1,4 +1,5 @@
 import SignIn from "../pages/account/SignIn";
+import Cart from "../pages/cart/Cart";
 import ContactPage from "../pages/contact/Contact";
 import DepositPage from "../pages/deposit/Deposit";
 import HomePage from "../pages/home/Home";
@@ -24,5 +25,37 @@ export const routes = [
         path: '/account',
         sidebar: () => <div>item3</div>,
         main: () => <div><SignIn /></div>
+    },
+    {
+        path: '/cart',
+        sidebar: () => <div>item3</div>,
+        main: () => <div><Cart /></div>
     }
 ]
+
+export const cartColumns = [
+    {
+      title: "Account ID",
+      dataIndex: "accountID",
+    },
+    {
+      title: "Game",
+      dataIndex: "type",
+    },
+    {
+      title: "Total Champion",
+      dataIndex: "totalChampion",
+    },
+    {
+      title: "Total Skin",
+      dataIndex: "totalSkin",
+    },
+    {
+      title: "Rank",
+      dataIndex: "rank",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+    },
+  ];
