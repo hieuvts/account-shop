@@ -7,7 +7,7 @@ export default function AccountList({ accounts }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentPage, setcurrentPage] = useState(1);
   const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(4);
+  const [maxValue, setMaxValue] = useState(12);
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -22,9 +22,10 @@ export default function AccountList({ accounts }) {
   const onPageChange = (page) => {
     console.log("page: ", page);
     setcurrentPage(page);
-    setMinValue((page - 1) * 4);
-    setMaxValue((page - 1) * 4 + 4);
+    setMinValue((page - 1) * 32);
+    setMaxValue((page - 1) * 32 + 32);
   };
+  
   return (
     <>
       <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -42,7 +43,8 @@ export default function AccountList({ accounts }) {
         </Row>
         <Pagination
           current={currentPage}
-          total={30}
+          defaultPageSize={32}
+          total={accounts.length/32}
           style={{ textAlign: "center" }}
           onChange={onPageChange}
         />

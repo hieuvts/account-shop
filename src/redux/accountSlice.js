@@ -7,7 +7,8 @@ export const getAccountAsync = createAsyncThunk(
     if (response.ok) {
       const responseFromServer = await response.json();
       const account = responseFromServer.account;
-      return account;
+      console.log(account);
+      return { account };
     } else {
       console.log("[FAILED] getAccountAsync: ", response.status);
     }

@@ -27,7 +27,7 @@ export default function CardAccount({
         <Col className="gutter-row" span={6} key={index}>
           <Card
             hoverable
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "80%", height: "auto" }}
             cover={
               <img
                 alt="Images"
