@@ -7,7 +7,6 @@ export const getAccountAsync = createAsyncThunk(
     if (response.ok) {
       const responseFromServer = await response.json();
       const account = responseFromServer.account;
-      console.log(account);
       return { account };
     } else {
       console.log("[FAILED] getAccountAsync: ", response.status);
@@ -31,7 +30,7 @@ const accountSlice = createSlice({
       console.log("[PENDING] getAccountAsync", state);
     },
     [getAccountAsync.fulfilled]: (state, actions) => {
-      console.log("[FULFILLED] getAccountAsync", actions.payload.account);
+      // console.log("[FULFILLED] getAccountAsync", actions.payload.account);
       return actions.payload.account;
     },
     [getAccountAsync.rejected]: (state, actions) => {

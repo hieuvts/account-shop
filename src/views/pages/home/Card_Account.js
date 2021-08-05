@@ -22,7 +22,7 @@ export default function CardAccount({
   const dispatch = useDispatch();
   return (
     accounts.length > 0 &&
-    accounts.slice(minValue, maxValue).map((item, index) => {
+    accounts.slice(minValue, maxValue).map((element, index) => {
       return (
         <Col className="gutter-row" span={6} key={index}>
           <Card
@@ -31,7 +31,7 @@ export default function CardAccount({
             cover={
               <img
                 alt="Images"
-                src={item.imgPreview}
+                src={element.item.imgPreview}
                 height="300px"
                 onClick={() => {
                   showModal();
@@ -51,26 +51,26 @@ export default function CardAccount({
                   </div>
                   <div className="card-meta-description-child">
                     <h3>Total champion</h3>
-                    {item.totalChampion}
+                    {element.item.totalChampion}
                   </div>
                   <div className="card-meta-description-child">
                     <h3>Total skin</h3>
                     <h3 style={{ color: "blue", fontWeight: "800" }}>
-                      {item.totalSkin}
+                      {element.item.totalSkin}
                     </h3>
                   </div>
                   <div className="card-meta-description-child">
-                    <h3>{item.accountID}</h3>
-                    <h3>{item.rank}</h3>
+                    <h3>{element.item.accountID}</h3>
+                    <h3>{element.item.rank}</h3>
                   </div>
                   <div className="card-meta-description-child">
-                    <div style={priceStyle}>{item.price}</div>
+                    <div style={priceStyle}>{element.item.price}</div>
                     <Button
                       type="primary"
                       size="large"
                       onClick={() => {
                         console.log("clicked btn BUY");
-                        dispatch(addItemToCart(item));
+                        dispatch(addItemToCart(element.item));
                       }}
                     >
                       Buy
