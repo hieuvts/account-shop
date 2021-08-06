@@ -17,9 +17,8 @@ export default function HomePage() {
     dispatch(getAccountAsync());
   }, [dispatch]);
   const accounts = useSelector((state) => state.account);
-
   function handleSearch() {
-    return sampleAccounts.filter((ele) => ele.game.match(regex));
+    return accounts.filter((ele) => ele.game.match(regex));
   }
   const searchResult = handleSearch();
   const handlePriceSort = (value) => {

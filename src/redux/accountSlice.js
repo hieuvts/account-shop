@@ -15,7 +15,17 @@ export const getAccountAsync = createAsyncThunk(
 );
 const accountSlice = createSlice({
   name: "account",
-  initialState: [{ a: 1 }],
+  initialState: [
+    {
+      game: "Loading",
+      price: 0,
+      imgPreview:
+        "https://dummyimage.com/300x300/000/fff&text=Loading",
+      totalChampion: 0,
+      totalSkin: 0,
+      rank: "Loading",
+    },
+  ],
   reducers: {
     sortAccountByPrice: (state, action) => {
       console.log("price sort", action.payload);
