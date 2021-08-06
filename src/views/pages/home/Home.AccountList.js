@@ -1,4 +1,4 @@
-import { Row, Col, Modal, Button, Pagination } from "antd";
+import { Row, Modal, Pagination } from "antd";
 import { useState } from "react";
 
 import CardAccount from "./Card_Account";
@@ -25,14 +25,13 @@ export default function AccountList({ accounts }) {
     setMinValue((page - 1) * 32);
     setMaxValue((page - 1) * 32 + 32);
   };
-  
   return (
     <>
       <Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <h1>Sample</h1>
       </Modal>
       <div className="account-list">
-        <h2>Account: {accounts.length}</h2>
+        <h2>Total account: {accounts.length}</h2>
         <Row gutter={[16, 24]} style={{ textAlign: "center" }}>
           <CardAccount
             accounts={accounts}
@@ -44,8 +43,8 @@ export default function AccountList({ accounts }) {
         <Pagination
           current={currentPage}
           defaultPageSize={32}
-          total={accounts.length/32}
-          style={{ textAlign: "center" }}
+          total={accounts.length / 32}
+          style={{ textAlign: "center", paddingTop: "20px"}}
           onChange={onPageChange}
         />
       </div>

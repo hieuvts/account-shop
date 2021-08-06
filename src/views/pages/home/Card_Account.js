@@ -12,7 +12,11 @@ const priceStyle = {
   borderWidth: "0.5px",
   padding: "5px",
 };
-
+const accoutDetailStyle = { color: "blue", fontWeight: "800" };
+var moneyFormatter = new Intl.NumberFormat("vi-VN", {
+  style: "currency",
+  currency: "VND",
+});
 export default function CardAccount({
   accounts,
   minValue,
@@ -27,11 +31,11 @@ export default function CardAccount({
         <Col className="gutter-row" span={6} key={index}>
           <Card
             hoverable
-            style={{ width: "80%", height: "auto" }}
+            style={{ width: "90%", height: "auto", maxHeight: "1000px"}}
             cover={
               <img
                 alt="Images"
-                src={element.item.imgPreview}
+                src={element.imgPreview}
                 height="300px"
                 onClick={() => {
                   showModal();
@@ -46,31 +50,29 @@ export default function CardAccount({
               description={
                 <div className="card-meta-description">
                   <div className="card-meta-description-child">
-                    <h3>Country</h3>
-                    <FaFlag />
+                    <h2>Rank</h2>
+                    <h2 style={accoutDetailStyle}>{element.rank}</h2>
                   </div>
                   <div className="card-meta-description-child">
-                    <h3>Total champion</h3>
-                    {element.item.totalChampion}
+                    <h2>Total champion</h2>
+                    <h2 style={accoutDetailStyle}>{element.totalChampion}</h2>
                   </div>
                   <div className="card-meta-description-child">
-                    <h3>Total skin</h3>
-                    <h3 style={{ color: "blue", fontWeight: "800" }}>
-                      {element.item.totalSkin}
-                    </h3>
+                    <h2>Total skin</h2>
+                    <h2 style={accoutDetailStyle}>{element.totalSkin}</h2>
                   </div>
                   <div className="card-meta-description-child">
-                    <h3>{element.item.accountID}</h3>
-                    <h3>{element.item.rank}</h3>
+                    <h2>{element.accountID}</h2>
+                    <h2 style={accoutDetailStyle}>{element.rank}</h2>
                   </div>
                   <div className="card-meta-description-child">
-                    <div style={priceStyle}>{element.item.price}</div>
+                    <div style={priceStyle}>{moneyFormatter.format(element.price)}</div>
                     <Button
                       type="primary"
                       size="large"
                       onClick={() => {
                         console.log("clicked btn BUY");
-                        dispatch(addItemToCart(element.item));
+                        dispatch(addItemToCart(element));
                       }}
                     >
                       Buy

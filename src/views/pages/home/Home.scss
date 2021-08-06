@@ -7,18 +7,23 @@
 //     font-family: 'Lato', sans-serif;
 // }
 .account-filter {
+    border: 1px;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    border-color: whitesmoke;
+    border-color: transparent;
+    background-color: whitesmoke;
     border-style: solid;
-    .input-group {
-        justify-content: space-between;
-    }
+}
+
+.account-filter-child {
+    display: flex;
+    flex-direction: row;
 }
 
 .account-list {
+    margin: 2% 0 2% 0;
     text-align: left;
     border-color: whitesmoke;
     border-style: solid;
