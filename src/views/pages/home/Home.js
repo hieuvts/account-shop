@@ -10,8 +10,8 @@ import "./Home.scss";
 const { Option } = Select;
 
 export default function HomePage() {
-  // const accounts = useSelector((state) => state.account);
-  const accounts = [
+  const accounts = useSelector((state) => state.account);
+  const accounts1 = [
     {
       game: "LOL",
       price: 3879624,
@@ -19,6 +19,7 @@ export default function HomePage() {
       totalChampion: 47,
       totalSkin: 10,
       rank: "Iron",
+      fuse: "fuse ",
       _id: "610b958b3ea72956b33760de",
       __v: 0,
     },
@@ -29,6 +30,7 @@ export default function HomePage() {
       totalChampion: 73,
       totalSkin: 44,
       rank: "Iron",
+      fuse: "fuse ",
       _id: "610b958b3ea72956b33760df",
       __v: 0,
     },
@@ -41,6 +43,7 @@ export default function HomePage() {
       rank: "Iron",
       _id: "610b958b3ea72956b33760e0",
       __v: 0,
+      fuse: "fuse ",
     },
     {
       game: "LOL",
@@ -51,6 +54,7 @@ export default function HomePage() {
       rank: "Iron",
       _id: "610b958b3ea72956b33760e1",
       __v: 0,
+      fuse: "fuse ",
     },
     {
       game: "LOL",
@@ -60,6 +64,7 @@ export default function HomePage() {
       totalSkin: 98,
       rank: "Iron",
       _id: "610b958b3ea72956b33760e2",
+      fuse: "fuse ",
       __v: 0,
     },
   ];
@@ -78,14 +83,16 @@ export default function HomePage() {
   // useEffect(() => {
   //   dispatch(sortAccountByDate(dateSort));
   // }, [dateSort, dispatch]);
+
+  //Fix fuse.js doesn't match value with only one single word
+  //Add object "fuse" - value "fuse " (with one white space) 
   const fuse = new Fuse(accounts, {
-    keys: ["price"],
+    keys: ["price", "fuse"],
     includeScore: true,
-    threshold: 1,
+    threshold: 0.7,
   });
   const searchResult = fuse.search(!searchInput ? " " : searchInput);
   console.log("searchResult ", searchResult);
-
 
   const handlePriceSort = (value) => {
     setPriceSort(value);
