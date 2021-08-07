@@ -26,7 +26,6 @@ export default function Cart() {
     dispatch(deleteAllItemInCart());
   };
   const calcTotalPrice = () => {
-    console.log("goi ham calc");
     let price = 0;
     totalCartItem.map((item) => {
       if (Number.isInteger(parseInt(item.price))) {

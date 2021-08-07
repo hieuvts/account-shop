@@ -1,11 +1,11 @@
-@import '~antd/dist/antd.css';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import "~antd/dist/antd.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-style: bold;
 }
 
@@ -53,13 +53,15 @@ a {
     font-size: 20px;
 }
 
-p {
-    font-size: 16px;
-    font-weight: 300;
+h1 {
+    color: white;
+    font-weight: 900;
 }
 
-h1 {
-    font-weight: 900;
+p {
+    font-size: 18px;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .nav-link {
@@ -69,5 +71,60 @@ h1 {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.account-filter {
+    border: 1px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-color: transparent;
+    background-color: whitesmoke;
+    border-style: solid;
+}
+
+.account-filter-child {
+    display: flex;
+    flex-direction: row;
+}
+
+.account-list {
+    margin: 2% 0 2% 0;
+    text-align: left;
+    border-color: whitesmoke;
+    border-style: solid;
+}
+
+.card-meta-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-meta-description-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #2f353b;
+    color: white;
+}
+
+Footer {
+    padding: 0 !important;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: left;
+    margin: 20px 0 20px 0;
 }

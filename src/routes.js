@@ -1,4 +1,4 @@
-import { Breadcrumb, Layout, Affix } from "antd";
+import { Layout, Affix } from "antd";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { routes } from "./views/shared/constants";
@@ -14,13 +14,7 @@ export default function Routes() {
           <Affix>
             <HomeHeader />
           </Affix>
-          <Content style={{ padding: "0 50px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>
-                {window.location.pathname.toUpperCase()}
-              </Breadcrumb.Item>
-            </Breadcrumb>
+          <Content style={{ padding: "10px 20px" }}>
             <div className="site-layout-content">
               <Switch>
                 {routes.map((route, index) => (

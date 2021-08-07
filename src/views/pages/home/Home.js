@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAccountAsync } from "../../../redux/accountSlice";
 import CarouselBanner from "../../components/CarouselBanner";
 import AccountList from "./Home.AccountList";
-import "./Home.scss";
-import { sampleAccounts } from "../../shared/constants";
 const { Option } = Select;
 
 export default function HomePage() {

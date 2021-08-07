@@ -11,7 +11,6 @@ export const routes = [
     sidebar: () => <div>item1</div>,
     main: () => (
       <div>
-        {" "}
         <HomePage />
       </div>
     ),
@@ -21,7 +20,6 @@ export const routes = [
     sidebar: () => <div>item2</div>,
     main: () => (
       <div>
-        {" "}
         <DepositPage />
       </div>
     ),

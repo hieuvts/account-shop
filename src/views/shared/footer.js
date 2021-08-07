@@ -1,5 +1,4 @@
 import { Layout } from "antd";
-import "./footer.scss";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 const { Footer } = Layout;
 
