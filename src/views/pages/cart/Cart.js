@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { Table, Button } from "antd";
 import { cartColumns } from "../../shared/constants";
 import { Link } from "react-router-dom";
-
+import { sampleAccounts } from "../../shared/constants";
+import CartItems from "./CartItems";
 export default function Cart() {
   const totalCartItem = useSelector((state) => state.cart);
   const [selectedRowKeys, setSelectedRowKey] = useState([]);
@@ -36,27 +37,10 @@ export default function Cart() {
   };
   return (
     <>
-      {totalCartItem.length > 0 ? (
-        <>
-          <Table
-            rowSelection={rowSelection}
-            columns={cartColumns}
-            dataSource={totalCartItem}
-          />
-          <div
-            style={{
-              textAlign: "right",
-              fontSize: "18px",
-              justifyContent: "space-between",
-            }}
-          >
-            <h2>Total price: {calcTotalPrice(totalCartItem)}</h2>
-            <Button type="primary">Check out</Button>
-            <Button type="secondary" danger onClick={handleDeleteAll}>
-              Delete all
-            </Button>
-          </div>
-        </>
+      {sampleAccounts.length > 0 ? (
+        <div>
+          <CartItems />
+        </div>
       ) : (
         <div>
           <h1>Your cart is empty</h1>

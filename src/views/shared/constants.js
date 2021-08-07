@@ -55,12 +55,8 @@ export const routes = [
 
 export const cartColumns = [
   {
-    title: "Account ID",
-    dataIndex: "accountID",
-  },
-  {
     title: "Game",
-    dataIndex: "type",
+    dataIndex: "game",
   },
   {
     title: "Total Champion",

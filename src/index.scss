@@ -7,6 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: "Open Sans", sans-serif;
     font-style: bold;
+    background-color: #F1F0F1;
 }
 
 header {
@@ -60,7 +61,6 @@ h1 {
 
 p {
     font-size: 18px;
-    font-size: 16px;
     font-weight: 300;
 }
 
@@ -107,6 +107,36 @@ code {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.cart-items {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-items-col-left {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.cart-items-col-right {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.cart-items-row {
+    background-color: white;
+    border-radius: 50px;
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    vertical-align: middle;
 }
 
 .footer {
