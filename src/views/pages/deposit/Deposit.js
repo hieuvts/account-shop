@@ -1,5 +1,29 @@
 import { useState } from "react";
-
+import { Form, Input, Button, Checkbox } from "antd";
 export default function DepositPage() {
-  return <h1>In development</h1>;
+  return (<><Form
+    name="basic"
+    labelCol={{
+      span: 8,
+    }}
+    wrapperCol={{
+      span: 16,
+    }}
+    initialValues={{
+      remember: true,
+    }}
+  >
+    <Form.Item
+      label="Username"
+      name="username"
+      rules={[
+        {
+          required: true,
+          message: "Please input your username!",
+        },
+      ]}
+    >
+      <Input />
+    </Form.Item>
+  </Form></>);
 }

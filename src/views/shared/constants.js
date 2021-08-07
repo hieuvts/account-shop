@@ -34,7 +34,7 @@ export const routes = [
     ),
   },
   {
-    path: "/account",
+    path: "/signin",
     sidebar: () => <div>item3</div>,
     main: () => (
       <div>
