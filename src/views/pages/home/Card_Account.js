@@ -1,5 +1,5 @@
 import { Button, Col, Card, Rate } from "antd";
-import { FaFlag } from "react-icons/fa";
+import {moneyFormatter} from '../../shared/utility'
 import { addItemToCart } from "../../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 const { Meta } = Card;
@@ -13,10 +13,7 @@ const priceStyle = {
   padding: "5px",
 };
 const accoutDetailStyle = { color: "blue", fontWeight: "800" };
-var moneyFormatter = new Intl.NumberFormat("vi-VN", {
-  style: "currency",
-  currency: "VND",
-});
+
 export default function CardAccount({
   accounts,
   minValue,
@@ -66,7 +63,7 @@ export default function CardAccount({
                     <h2 style={accoutDetailStyle}>{element.rank}</h2>
                   </div>
                   <div className="card-meta-description-child">
-                    <div style={priceStyle}>{moneyFormatter.format(element.price)}</div>
+                    <div style={priceStyle}>{moneyFormatter(element.price)}</div>
                     <Button
                       type="primary"
                       size="large"

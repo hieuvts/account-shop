@@ -7,7 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: "Open Sans", sans-serif;
     font-style: bold;
-    background-color: #F1F0F1;
+    background-color: #f1f0f1;
 }
 
 header {
@@ -61,6 +61,7 @@ h1 {
 
 p {
     font-size: 18px;
+    margin: 0px;
     font-weight: 300;
 }
 
@@ -72,6 +73,19 @@ p {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .account-filter {
@@ -115,6 +129,19 @@ code {
     justify-content: space-around;
 }
 
+.cart-items-col {
+    background-color: white;
+    border-radius: 10px;
+    border-color: transparent;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 50px 10px 20px;
+    margin-top: 10px;
+}
+
 .cart-items-col-left {
     display: flex;
     flex-direction: column;
@@ -129,14 +156,15 @@ code {
 
 .cart-items-row {
     background-color: white;
-    border-radius: 50px;
-    border-width: 2px;
+    border-radius: 10px;
     border-color: transparent;
     border-style: solid;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    vertical-align: middle;
+    justify-content: space-between;
+    padding: 10px 50px 10px 20px;
+    margin-top: 10px;
 }
 
 .footer {
