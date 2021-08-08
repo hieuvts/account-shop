@@ -2,13 +2,11 @@ import { Menu, Badge, Layout } from "antd";
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../images/google.svg";
-import { getCardItem } from "../../redux/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 const { Header } = Layout;
 export default function HomeHeader() {
   const totalCartItem = useSelector((state) => state.cart);
-  //   const dispatch = useDispatch();
-  //   dispatch(getCardItem());
+
   return (
     <Header>
       <div className="logo">

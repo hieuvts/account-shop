@@ -4,18 +4,20 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: [],
   reducers: {
-    getCardItem: (state, actions) => {
-      //   return state;
-    },
     addItemToCart: (state, actions) => {
-      console.log("payload", actions.payload)
-      state.push(actions.payload);
+      const index = state.findIndex(
+        (account) => account._id === actions.payload._id
+      );
+      //Add account to cart if it not exist there
+      if (index < 0) {
+        state.push(actions.payload);
+      }
     },
     deleteACartItem: (state, actions) => {
-      console.log("invoked cart delete item");
-      state = state.filter((item) => item._id !== actions.payload._id);
+      return state.filter((cart) => cart._id !== actions.payload.account_id);
     },
     deleteAllItemInCart: (state, actions) => {
+      //Return empty state
       return [];
     },
   },

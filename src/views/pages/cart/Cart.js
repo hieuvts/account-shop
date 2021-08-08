@@ -2,12 +2,10 @@ import { getCardItem, deleteAllItemInCart } from "../../../redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { Divider, Button, Modal } from "antd";
-import { cartColumns } from "../../shared/constants";
-import { Link } from "react-router-dom";
-import { sampleAccounts } from "../../shared/constants";
 import CartItems from "./CartItems";
 export default function Cart() {
   const totalCartItem = useSelector((state) => state.cart);
+
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const dispatch = useDispatch();
@@ -22,7 +20,6 @@ export default function Cart() {
     dispatch(deleteAllItemInCart());
   };
   const showModal = () => {
-    console.log("1");
     setIsModalVisible(true);
   };
 
@@ -32,7 +29,6 @@ export default function Cart() {
   };
 
   const handleCancel = () => {
-    console.log("1");
     setIsModalVisible(false);
   };
   return (
@@ -56,7 +52,7 @@ export default function Cart() {
           <CartItems totalCartItem={totalCartItem} showModal={showModal} />
         </div>
       ) : (
-        <div style={{textAlign: "center"}}>
+        <div style={{ textAlign: "center" }}>
           <h1 style={h1Style}>Your cart is empty</h1>
           <h1 style={h1Style}>
             Go back to

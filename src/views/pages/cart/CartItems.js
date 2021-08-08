@@ -1,6 +1,4 @@
-import { InputNumber, Modal, Button, Input, Divider } from "antd";
-import { useState } from "react";
-import { sampleAccounts } from "../../shared/constants";
+import { Button, Input, Divider } from "antd";
 import { moneyFormatter } from "../../shared/utility";
 import { deleteACartItem } from "../../../redux/cartSlice";
 import { useDispatch } from "react-redux";
@@ -8,13 +6,6 @@ import { useDispatch } from "react-redux";
 export default function CartItems({ totalCartItem, showModal }) {
   const dispatch = useDispatch();
   const calcTotalPrice = () => {
-    let price = 0;
-    // totalCartItem.map((item) => {
-    //   if (Number.isInteger(parseInt(item.price))) {
-    //     price += parseInt(item.price);
-    //   }
-    // });
-
     return (
       <span style={{ color: "red", fontWeight: "800", fontSize: "30px" }}>
         {moneyFormatter(
@@ -51,7 +42,9 @@ export default function CartItems({ totalCartItem, showModal }) {
                 <Button
                   type="link"
                   size="large"
-                  onClick={() => dispatch(deleteACartItem())}
+                  onClick={() =>
+                    dispatch(deleteACartItem({ account_id: account._id }))
+                  }
                 >
                   Remove
                 </Button>
