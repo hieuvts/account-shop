@@ -5,17 +5,25 @@ const cartSlice = createSlice({
   initialState: [],
   reducers: {
     getCardItem: (state, actions) => {
-      console.log("invoked cart total item");
       //   return state;
     },
     addItemToCart: (state, actions) => {
+      console.log("payload", actions.payload)
       state.push(actions.payload);
+    },
+    deleteACartItem: (state, actions) => {
+      console.log("invoked cart delete item");
+      state = state.filter((item) => item._id !== actions.payload._id);
     },
     deleteAllItemInCart: (state, actions) => {
       return [];
     },
   },
 });
-export const { getCardItem, addItemToCart, deleteAllItemInCart } =
-  cartSlice.actions;
+export const {
+  getCardItem,
+  addItemToCart,
+  deleteACartItem,
+  deleteAllItemInCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

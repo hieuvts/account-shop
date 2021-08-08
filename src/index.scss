@@ -10,6 +10,16 @@ body {
     background-color: #f1f0f1;
 }
 
+.top-banner {
+    height: 50px;
+    background-image: url("https://lh3.googleusercontent.com/JdZcAcxUz4fUm49m9XqQOp_tTf74yWjmOhAQjAxCw_RRLtojchMIMZQQnPkmQhZaCZeUZAlnJbVEYlGcanKXTjcHaUKYxzXv=w1920-rw");
+    background-size: contain;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     background-color: rgb(148, 150, 148);
     display: flex;
@@ -17,6 +27,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     font-size: 30px;
+    z-index: 99;
 }
 
 .logo {

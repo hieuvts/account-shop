@@ -2,18 +2,27 @@ import { InputNumber, Modal, Button, Input, Divider } from "antd";
 import { useState } from "react";
 import { sampleAccounts } from "../../shared/constants";
 import { moneyFormatter } from "../../shared/utility";
+import { deleteACartItem } from "../../../redux/cartSlice";
+import { useDispatch } from "react-redux";
 
 export default function CartItems({ totalCartItem, showModal }) {
+  const dispatch = useDispatch();
   const calcTotalPrice = () => {
     let price = 0;
-    totalCartItem.map((item) => {
-      if (Number.isInteger(parseInt(item.price))) {
-        price += parseInt(item.price);
-      }
-    });
+    // totalCartItem.map((item) => {
+    //   if (Number.isInteger(parseInt(item.price))) {
+    //     price += parseInt(item.price);
+    //   }
+    // });
+
     return (
       <span style={{ color: "red", fontWeight: "800", fontSize: "30px" }}>
-        {moneyFormatter(price)}
+        {moneyFormatter(
+          totalCartItem.reduce(
+            (total, currentItem) => (total = total + currentItem.price),
+            0
+          )
+        )}
       </span>
     );
   };
@@ -28,9 +37,9 @@ export default function CartItems({ totalCartItem, showModal }) {
       ></div>
       <div className="cart-items">
         <div className="cart-items-col-left">
-          {totalCartItem.map((account) => {
+          {totalCartItem.map((account, index) => {
             return (
-              <div className="cart-items-row">
+              <div key={index} className="cart-items-row">
                 <img
                   src={account.imgPreview}
                   alt="cart"
@@ -39,7 +48,11 @@ export default function CartItems({ totalCartItem, showModal }) {
                 ></img>
                 <p>{account.game}</p>
                 <p>{moneyFormatter(account.price)}</p>
-                <Button type="link" size="large" onClick={showModal}>
+                <Button
+                  type="link"
+                  size="large"
+                  onClick={() => dispatch(deleteACartItem())}
+                >
                   Remove
                 </Button>
               </div>
