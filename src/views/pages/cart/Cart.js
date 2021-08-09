@@ -1,16 +1,15 @@
-import { getCardItem, deleteAllItemInCart } from "../../../redux/cartSlice";
+import { getItemFromCart, deleteAllItemInCart } from "../../../redux/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { Divider, Button, Modal } from "antd";
 import CartItems from "./CartItems";
 export default function Cart() {
   const totalCartItem = useSelector((state) => state.cart);
-
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCardItem());
+    dispatch(getItemFromCart);
   }, [dispatch]);
 
   const h1Style = {

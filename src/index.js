@@ -3,12 +3,19 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import Routes from "./routes";
 import { Provider } from "react-redux";
-import { accountStore } from "./redux/store";
+import store, { persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={accountStore}>
-      <Routes />
-    </Provider>
+    <PersistGate
+      loading={null}
+      persistor={persistor}
+    >
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </PersistGate>
   </React.StrictMode>,
   document.getElementById("root")
 );
