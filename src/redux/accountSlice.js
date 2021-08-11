@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getAccountAsync = createAsyncThunk(
   "account/getAccountAsync",
   async () => {
-    const response = await fetch("http://localhost:8000/api/account");
+    const response = await fetch("http://40.87.98.137:8000/api/account");
     if (response.ok) {
       const responseFromServer = await response.json();
       const account = responseFromServer.account;
